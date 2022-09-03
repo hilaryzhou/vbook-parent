@@ -1,4 +1,4 @@
-package com.zhou.reptile;
+package com.vbook.reptile;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
