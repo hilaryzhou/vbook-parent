@@ -29,10 +29,12 @@
         <easyExcel.version>3.0.4</easyExcel.version>
         <knife4j.version>3.0.3</knife4j.version>
         <mysql.version>8.0.23</mysql.version>
+        <commons-lang3.version>3.12.0</commons-lang3.version>
         <lombok.version>1.18.8</lombok.version>
         <nacos-discovery.version>2.2.1.RELEASE</nacos-discovery.version>
         <nacos-config.version>2.2.1.RELEASE</nacos-config.version>
         <jsoup.version>1.14.3</jsoup.version>
+        <orika.version>1.5.4</orika.version>
     </properties>
 
     <dependencyManagement>
@@ -112,9 +114,23 @@
                 <artifactId>jsoup</artifactId>
                 <version>${jsoup.version}</version>
             </dependency>
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-lang3</artifactId>
+                <version>${commons-lang3.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>ma.glasnost.orika</groupId>
+                <artifactId>orika-core</artifactId>
+                <version>${orika.version}</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
     <dependencies>
+        <dependency>
+            <artifactId>lombok</artifactId>
+            <groupId>org.projectlombok</groupId>
+        </dependency>
         <dependency>
             <artifactId>guava</artifactId>
             <groupId>com.google.guava</groupId>
