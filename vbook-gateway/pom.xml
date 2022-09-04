@@ -8,8 +8,8 @@
         <groupId>org.vbook</groupId>
         <version>1.0-SNAPSHOT</version>
     </parent>
+    <packaging>jar</packaging>
     <artifactId>vbook-gateway</artifactId>
-    <packaging>pom</packaging>
     <dependencies>
         <dependency>
             <groupId>com.alibaba</groupId>
@@ -22,12 +22,17 @@
         <dependency>
             <groupId>org.vbook</groupId>
             <artifactId>vbook-core</artifactId>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-starter-web</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
         <dependency>
             <groupId>org.vbook</groupId>
             <artifactId>vbook-model</artifactId>
         </dependency>
-
         <dependency>
             <groupId>org.vbook</groupId>
             <artifactId>vbook-knife4j-spring-boot-starter</artifactId>

@@ -30,13 +30,10 @@
         <fastjson.version>1.2.78</fastjson.version>
         <easyExcel.version>3.0.4</easyExcel.version>
         <knife4j.version>3.0.3</knife4j.version>
-        <mysql.version>8.0.23</mysql.version>
         <commons-lang3.version>3.12.0</commons-lang3.version>
-        <lombok.version>1.18.8</lombok.version>
         <nacos-discovery.version>2.2.1.RELEASE</nacos-discovery.version>
         <nacos-config.version>2.2.1.RELEASE</nacos-config.version>
         <orika.version>1.5.4</orika.version>
-        <httpclient.version>4.5.13</httpclient.version>
     </properties>
 
     <dependencyManagement>
@@ -101,11 +98,6 @@
                 <artifactId>easyexcel</artifactId>
                 <version>${easyExcel.version}</version>
             </dependency>
-            <dependency>
-                <groupId>mysql</groupId>
-                <artifactId>mysql-connector-java</artifactId>
-                <version>${mysql.version}</version>
-            </dependency>
             <!--mybatis-plus-->
             <dependency>
                 <groupId>com.baomidou</groupId>
@@ -118,13 +110,6 @@
                 <artifactId>fastjson</artifactId>
                 <version>${fastjson.version}</version>
             </dependency>
-            <!--lombok-->
-            <dependency>
-                <artifactId>lombok</artifactId>
-                <groupId>org.projectlombok</groupId>
-                <version>${lombok.version}</version>
-            </dependency>
-
             <dependency>
                 <groupId>org.apache.commons</groupId>
                 <artifactId>commons-lang3</artifactId>
@@ -135,18 +120,12 @@
                 <artifactId>orika-core</artifactId>
                 <version>${orika.version}</version>
             </dependency>
-            <dependency>
-                <groupId>org.apache.httpcomponents</groupId>
-                <artifactId>httpclient</artifactId>
-                <version>${httpclient.version}</version>
-            </dependency>
         </dependencies>
     </dependencyManagement>
     <dependencies>
         <dependency>
             <artifactId>lombok</artifactId>
             <groupId>org.projectlombok</groupId>
-            <scope>provided</scope>
         </dependency>
         <dependency>
             <artifactId>guava</artifactId>
@@ -155,18 +134,14 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter</artifactId>
-            <exclusions>
-                <exclusion>
-                    <groupId>org.springframework.boot</groupId>
-                    <artifactId>spring-boot-starter-tomcat</artifactId>
-                </exclusion>
-                    <exclusion>
-                        <groupId>ch.qos.logback</groupId>
-                        <artifactId>logback-classic</artifactId>
-                </exclusion>
-            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>javax.validation</groupId>
+            <artifactId>validation-api</artifactId>
         </dependency>
     </dependencies>
+
+
     <build>
         <plugins>
             <plugin>

@@ -18,6 +18,8 @@ spring:
                 file-extension: yml # data-id 后缀
                 name: ${spring.application.name} # data-id名称
                 shared-configs: # 共享配置
-                    - data-id: share-vbook.yml
-                      group: vbook
-                      refresh: false
+                    -   data-id: share-vbook.yml
+                        group: vbook
+                        refresh: false
+server:
+    port: 6005
