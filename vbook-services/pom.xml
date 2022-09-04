@@ -13,6 +13,8 @@
 
     <modules>
         <module>vbook-reptile</module>
+        <module>vbook-admin</module>
+        <module>vbook-app</module>
     </modules>
     <dependencies>
         <dependency>
