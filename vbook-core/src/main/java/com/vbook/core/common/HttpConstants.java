@@ -7,4 +7,5 @@ public class HttpConstants {
     public static final String HTTP_SIGN_HEADER_ACCEPT_SIGN = "Accept-Sign";
 
     public static final String HTTP_SKIP_CHECK_SIGN = "SkipSign";
+
 }
