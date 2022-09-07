@@ -17,7 +17,7 @@ import java.util.List;
  **/
 @Slf4j
 @Component
-@Order(1)
+@Order
 public class ApiLoggingFilter implements GlobalFilter {
     private static final String START_TIME = "startTime";
     // nginx需要配置
