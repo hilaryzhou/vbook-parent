@@ -21,5 +21,3 @@ spring:
                     -   data-id: share-vbook.yml
                         group: vbook
                         refresh: false
-server:
-    port: 6005
