@@ -13,15 +13,7 @@ import lombok.Data;
 @TableName("t_book")
 @Data
 public class BookInfo extends BaseModel {
-    /**
-     * 类型
-     */
-    private String type;
-    /**
-     * 排序
-     */
-    @TableField("order_num")
-    private Long orderNum;
+
     /**
      * 书名
      */
@@ -39,11 +31,13 @@ public class BookInfo extends BaseModel {
      */
     private String source;
     /**
-     * 作者
+     * 序列号
      */
-    private String author;
+    @TableField("serial_no")
+    private String SerialNo;
     /**
-     * 简介
+     * 排序
      */
-    private String about;
+    @TableField("order_num")
+    private Long orderNum;
 }

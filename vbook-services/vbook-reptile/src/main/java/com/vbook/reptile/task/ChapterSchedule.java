@@ -11,6 +11,9 @@ import org.springframework.scheduling.annotation.Async;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 import us.codecraft.webmagic.Spider;
+import us.codecraft.webmagic.downloader.HttpClientDownloader;
+import us.codecraft.webmagic.proxy.Proxy;
+import us.codecraft.webmagic.proxy.SimpleProxyProvider;
 
 import javax.annotation.Resource;
 
@@ -42,12 +45,16 @@ public class ChapterSchedule {
     @Async
     @Scheduled(cron = "0 0/10 * * * ?")
     public void incrementalCrawl() {
+        HttpClientDownloader httpClientDownloader = new HttpClientDownloader();
+        httpClientDownloader.setProxyProvider(SimpleProxyProvider.from(new Proxy("122.9.101.6",8888),
+        new Proxy("122.9.101.6",8888),new Proxy("47.106.105.236",80)));
         log.info("增量爬取笔趣阁小说");
         Spider.create(new ChapterPageProcessor())
                 //从这个url开始抓取
                 .addUrl(B5200_URL)
                 //使用redis进行去重，达到增量爬取的目的
                 .setScheduler(new RedisScheduler(redisTemplate))
+                .setDownloader(httpClientDownloader)
                 //设置5个线程同时抓取
                 .thread(5)
                 //使用自己的Pipeline将结果保存到数据库中

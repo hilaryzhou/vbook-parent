@@ -4,7 +4,7 @@ import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.update.LambdaUpdateWrapper;
 import com.vbook.core.utils.EmptyUtil;
 import com.vbook.model.reptile.BookInfo;
-import com.vbook.reptile.mapper.ReptileMapper;
+import com.vbook.reptile.mapper.BookMapper;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 import us.codecraft.webmagic.ResultItems;
@@ -17,7 +17,7 @@ import java.util.Date;
 @Component
 public class BookPipeline implements Pipeline {
     @Resource
-    private ReptileMapper mapper;
+    private BookMapper mapper;
 
     @Override
     @Transactional

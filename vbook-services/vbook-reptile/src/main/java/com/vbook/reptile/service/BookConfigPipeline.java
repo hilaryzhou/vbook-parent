@@ -4,8 +4,7 @@ import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.update.LambdaUpdateWrapper;
 import com.vbook.core.utils.EmptyUtil;
 import com.vbook.model.reptile.BookConfig;
-import com.vbook.model.reptile.BookInfo;
-import com.vbook.reptile.mapper.ReptileMapper;
+import com.vbook.reptile.mapper.BookConfigMapper;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 import us.codecraft.webmagic.ResultItems;
@@ -23,30 +22,29 @@ import java.util.Date;
 @Component
 public class BookConfigPipeline implements Pipeline {
     @Resource
-    private ReptileMapper mapper;
+    private BookConfigMapper mapper;
 
     @Override
     @Transactional
     public void process(ResultItems resultItems, Task task) {
         BookConfig config = resultItems.get("config");
         if (EmptyUtil.isNullOrEmpty(config)) {
-           return;
+            return;
         }
-        LambdaQueryWrapper<BookInfo> wrapper = new LambdaQueryWrapper();
-        wrapper.eq(BookInfo::getName, config.getName());
+        LambdaQueryWrapper<BookConfig> wrapper = new LambdaQueryWrapper();
+        wrapper.eq(BookConfig::getName, config.getName())
+                .eq(BookConfig::getSerialNo, config.getSerialNo());
         boolean flag = mapper.exists(wrapper);
-        BookInfo book = new BookInfo();
-        book.setAuthor(config.getAuthor());
-        book.setAbout(config.getAbout());
-        book.setName(config.getName());
+
         //修改
         if (flag) {
-            LambdaUpdateWrapper<BookInfo> update = new LambdaUpdateWrapper<>();
-            update.eq(BookInfo::getName, config.getName());
-            book.setUpdateTime(new Date());
-            mapper.update(book, update);
+            LambdaUpdateWrapper<BookConfig> update = new LambdaUpdateWrapper<>();
+            update.eq(BookConfig::getName, config.getName())
+                    .eq(BookConfig::getSerialNo, config.getSerialNo());
+            config.setUpdateTime(new Date());
+            mapper.update(config, update);
         }
         //插入
-        mapper.insert(book);
+        mapper.insert(config);
     }
 }
