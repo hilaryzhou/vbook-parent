@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.vbook.reptile.mapper.BookMapper">
+
+    <delete id="clearDuplicate">
+        delete
+        from t_book
+        where title in
+              (SELECT a.title
+               from (select title
+                     from t_book
+                     group by title
+                     having count(1) > 1) a)
+          and id not in (SELECT b.id
+                         from (select min(id) as id
+                               from t_book
+                               group by title
+                               having count(1) > 1) b)
+    </delete>
+</mapper>

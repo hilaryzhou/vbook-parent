@@ -11,4 +11,9 @@ import org.apache.ibatis.annotations.Mapper;
  **/
 @Mapper
 public interface BookConfigMapper extends BaseMapper<BookConfig> {
+    /**
+     * 定时删除表中重复内容
+     */
+    void clearDuplicate();
+
 }
