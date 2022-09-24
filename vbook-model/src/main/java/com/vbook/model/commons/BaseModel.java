@@ -1,4 +1,4 @@
-package com.vbook.model;
+package com.vbook.model.commons;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;

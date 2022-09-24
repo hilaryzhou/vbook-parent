@@ -2,7 +2,7 @@ package com.vbook.model.reptile;
 
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableName;
-import com.vbook.model.BaseModel;
+import com.vbook.model.commons.BaseModel;
 import lombok.Data;
 
 /**

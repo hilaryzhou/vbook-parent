@@ -1,6 +1,6 @@
-package com.vbook.core.commons;
+package com.vbook.model.commons;
 
-import com.vbook.core.enums.HttpCodeEnum;
+import com.vbook.model.commons.enums.HttpCodeEnum;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

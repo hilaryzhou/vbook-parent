@@ -1,7 +1,7 @@
 package com.vbook.exception;
 
 
-import com.vbook.model.common.enums.HttpCodeEnum;
+import com.vbook.model.commons.enums.HttpCodeEnum;
 
 /**
  * @Description: 抛异常工具类

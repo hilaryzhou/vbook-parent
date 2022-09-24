@@ -1,8 +1,8 @@
 package com.vbook.exception;
 
 
-import com.vbook.model.common.Response;
-import com.vbook.model.common.enums.HttpCodeEnum;
+import com.vbook.model.commons.Response;
+import com.vbook.model.commons.enums.HttpCodeEnum;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.bind.MethodArgumentNotValidException;

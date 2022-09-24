@@ -20,7 +20,7 @@
         <dependency>
             <groupId>org.vbook</groupId>
             <artifactId>vbook-model</artifactId>
-<!--            <scope>provided</scope>-->
+            <scope>provided</scope>
         </dependency>
     </dependencies>
 

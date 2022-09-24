@@ -1,6 +1,6 @@
 package com.vbook.exception;
 
-import com.vbook.model.common.enums.HttpCodeEnum;
+import com.vbook.model.commons.enums.HttpCodeEnum;
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 

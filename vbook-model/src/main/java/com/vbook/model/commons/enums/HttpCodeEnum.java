@@ -1,4 +1,4 @@
-package com.vbook.core.enums;
+package com.vbook.model.commons.enums;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
