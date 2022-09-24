@@ -27,7 +27,7 @@ public class ExceptionCatch {
     public Response exception(Exception ex) {
         // 记录日志
         log.error("捕获到全局异常 ex:{}", ex);
-        return Response.fail(HttpCodeEnum.SYSTEM_ERROR, "系统异常，请稍后重试");
+        return Response.failed(HttpCodeEnum.SYSTEM_ERROR, "系统异常，请稍后重试");
     }
 
     /**
@@ -40,7 +40,7 @@ public class ExceptionCatch {
     public Response custom(BaseException ex) {
         // 记录日志
         log.error("捕获到自定义异常 ex:{}", ex);
-        return Response.fail(ex.getHttpCodeEnum());
+        return Response.failed(ex.getHttpCodeEnum());
     }
 
     /**
@@ -52,6 +52,6 @@ public class ExceptionCatch {
     public Response handleValidationException(MethodArgumentNotValidException ex) {
         log.error("MethodArgumentNotValidException ex:{}", ex);
         ex.printStackTrace();
-        return Response.fail(HttpCodeEnum.INVALID_PARAM_ERROR, ex.getBindingResult().getFieldError().getDefaultMessage());
+        return Response.failed(HttpCodeEnum.INVALID_PARAM_ERROR, ex.getBindingResult().getFieldError().getDefaultMessage());
     }
 }

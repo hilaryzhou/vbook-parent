@@ -10,6 +10,7 @@ import lombok.extern.slf4j.Slf4j;
  * @Auther: zhouhuan
  * @Date: 2022/8/8-16:26
  */
+
 @Data
 @Slf4j
 public class BaseException extends RuntimeException {
@@ -23,7 +24,7 @@ public class BaseException extends RuntimeException {
     }
 
     public BaseException(HttpCodeEnum httpCodeEnum, String msg) {
-        httpCodeEnum.setErrorMessage(msg);
+        httpCodeEnum.setMsg(msg);
         this.httpCodeEnum = httpCodeEnum;
     }
     public BaseException(String message, HttpCodeEnum httpCodeEnum) {
@@ -35,9 +36,8 @@ public class BaseException extends RuntimeException {
     }
 
     public String getErrorMessage() {
-        return this.httpCodeEnum.getErrorMessage();
+        return this.httpCodeEnum.getMsg();
     }
 }
-
 
 
